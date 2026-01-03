@@ -1,0 +1,2410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dede!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0d1b3e;
+            --secondary-blue: #1a365d;
+            --accent-blue: #2d6efd;
+            --light-blue: #ebf4ff;
+            --white: #ffffff;
+            --gray: #f8fafc;
+            --dark-gray: #64748b;
+            --gold: #fbbf24;
+            --red: #dc2626;
+            --cake-brown: #d97706;
+            --cake-light: #fbbf24;
+            --cake-cream: #fef3c7;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --hyper-gradient: linear-gradient(135deg, #0d1b3e 0%, #1a365d 50%, #2d6efd 100%);
+            ---red: #8B0000;
+            ---gold: #D4AF37;
+            --text-light: #6B7280;
+        }
+
+        /* LOADING ANIMATION STYLES START */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--white);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .loader-content {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- Tahap 1: Kue (Cake) --- */
+        .cake-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+        }
+        .cake {
+            width: 60px;
+            height: 40px;
+            background: pink;
+            border-radius: 10px 10px 5px 5px;
+            position: relative;
+            box-shadow: 0 4px 0 #ff99aa;
+        }
+        .candle {
+            width: 8px;
+            height: 25px;
+            background: linear-gradient(to bottom, #ff0, #f00);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        .flame {
+            width: 10px;
+            height: 15px;
+            background: orange;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        /* --- Tahap 2: Batang Rokok (Cigarette Stick) --- */
+        .cig-stick {
+            width: 12px;
+            height: 80px;
+            background: white;
+            border: 1px solid #ddd;
+            position: absolute;
+            border-radius: 5px;
+            display: none;
+        }
+        .cig-filter {
+            width: 100%;
+            height: 25%;
+            background: orange;
+            border-bottom: 1px solid #cc8800;
+            border-radius: 4px 4px 0 0;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+        }
+        .cig-burn {
+            width: 100%;
+            height: 5px;
+            background: #333;
+            bottom: 0;
+            position: absolute;
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* --- Tahap 3: Bungkus  ( Pack) --- */
+        .-pack {
+            width: 80px;
+            height: 110px;
+            background: var(---red);
+            border-radius: 5px;
+            position: relative;
+            display: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border: 2px solid var(---gold);
+            overflow: hidden;
+        }
+        .-top {
+            width: 100%;
+            height: 30px;
+            background: var(---gold);
+            position: absolute;
+            top: 0;
+        }
+        .-label {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(---gold);
+            font-weight: bold;
+            font-size: 11px;
+            line-height: 1.2;
+            text-align: center;
+            border: 2px solid var(---gold);
+            padding: 8px 5px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+        }
+
+        #loading-text {
+            margin-top: 30px;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* LOADING ANIMATION STYLES END */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-blue);
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* --- PROFESSIONAL ANIMATION CLASSES --- */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Click Ripple Effect */
+        .ripple-effect {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Main Website */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Full Screen Header */
+        .fullscreen-header {
+            min-height: 100vh;
+            background: var(--hyper-gradient);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.4);
+            animation: float 8s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.4;
+            }
+            50% { 
+                transform: translateY(-40px) rotate(180deg) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .header-content h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.8rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .birthday-boy {
+            font-size: 2.2rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .birthday-boy:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* UPDATED CAKE SECTION START */
+        .header-cake {
+            margin: 20px auto 15px;
+            position: relative;
+            width: 160px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .cake-container-main {
+            position: relative;
+            width: 140px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: headerCakeFloat 4s infinite ease-in-out;
+        }
+
+        .cake-single {
+            width: 140px;
+            height: 70px;
+            background: linear-gradient(to bottom, #fffaf0, #fef3c7);
+            border-radius: 70px 70px 35px 35px;
+            position: relative;
+            box-shadow: 
+                0 6px 15px rgba(0, 0, 0, 0.2),
+                inset 0 -8px 12px rgba(120, 53, 15, 0.2),
+                0 2px 0 rgba(255, 255, 255, 0.3) inset;
+            z-index: 2;
+            border: 3px solid #92400e;
+            overflow: hidden;
+        }
+
+        .cake-text {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .-text {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffffff, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 14px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            padding: 2px 8px;
+            border-radius: 10px;
+            background-color: rgba(120, 53, 15, 0.8);
+        }
+
+        .cake-cigarette {
+            position: absolute;
+            top: -30px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .-cigarette {
+            width: 8px;
+            height: 60px;
+            background: linear-gradient(to top, 
+                #92400e 0%, 
+                #92400e 30%,
+                #d97706 30%,
+                #d97706 32%,
+                #ffffff 32%,
+                #ffffff 95%,
+                #333333 95%,
+                #ff4500 100%
+            );
+            border-radius: 2px 2px 0 0;
+            position: relative;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            animation: candleWobble 4s infinite ease-in-out;
+            transform-origin: bottom center;
+        }
+
+        .-cigarette:before {
+            content: '';
+            position: absolute;
+            bottom: 18px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #fbbf24;
+            box-shadow: 0 0 2px rgba(251, 191, 36, 0.8);
+        }
+
+        .-cigarette:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: radial-gradient(circle, #ff4500, #ff8c00);
+            border-radius: 50%;
+            animation: emberGlow 1.5s infinite alternate;
+            box-shadow: 0 -2px 8px rgba(255, 69, 0, 0.8);
+        }
+
+        .cigarette-smoke {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            top: -5px;
+            left: 1px;
+            animation: smokeRise 3s infinite ease-out;
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        .cigarette-smoke:nth-child(2) {
+            animation-delay: 0.8s;
+            width: 8px;
+            height: 8px;
+        }
+
+        .cigarette-smoke:nth-child(3) {
+            animation-delay: 1.6s;
+            width: 5px;
+            height: 5px;
+        }
+
+        @keyframes smokeRise {
+            0% { 
+                transform: translateY(0) scale(1) translateX(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.6;
+            }
+            100% { 
+                transform: translateY(-40px) scale(3) translateX(10px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes emberGlow {
+            0% { opacity: 0.7; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes candleWobble {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        @keyframes headerCakeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        /* UPDATED CAKE SECTION END */
+
+        /* Scroll Down Indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            z-index: 2;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            top: 50%;
+            right: 25px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .dot.active {
+            background-color: var(--accent-blue);
+            transform: scale(1.4);
+            border-color: white;
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        .dot:hover:not(.active) {
+            transform: scale(1.2);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Three-dot Menu */
+        .three-dot-menu {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 101;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .three-dot-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .three-dot-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .dot-item {
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 2.5px 0;
+            transition: var(--transition);
+        }
+
+        .three-dot-btn:hover .dot-item {
+            background-color: var(--gold);
+        }
+
+        .three-dot-content {
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: var(--transition);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .three-dot-content.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .three-dot-content a {
+            display: block;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: var(--primary-blue);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .three-dot-content a:hover {
+            background: rgba(45, 110, 253, 0.1);
+            padding-left: 35px;
+            color: var(--accent-blue);
+        }
+
+        .three-dot-content a i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            scroll-margin-top: 30px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+            font-size: 2.8rem;
+            position: relative;
+            display: block;
+            width: 100%;
+            left: 0;
+            transform: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-blue), transparent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .section-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 
+                var(--shadow),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Description Section */
+        .description-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .description-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .description-text p {
+            line-height: 1.9;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .description-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .image-frame {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            border: 10px solid transparent;
+            background: linear-gradient(45deg, var(--accent-blue), var(--gold)) border-box;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 10px white;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Album Section - UPDATED WITH IMAGE SUPPORT */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .album-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            height: 320px;
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            background: var(--primary-blue);
+        }
+
+        .album-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .album-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: brightness(0.95);
+            display: block;
+        }
+
+        .album-item:hover .album-image {
+            transform: scale(1.15);
+            filter: brightness(1.05);
+        }
+
+        .album-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(13, 27, 62, 0.95) 30%, transparent);
+            color: white;
+            padding: 30px 25px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .album-item:hover .album-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .album-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .album-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .album-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+        }
+
+        /* Image Upload Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--red);
+        }
+
+        .upload-area {
+            border: 2px dashed var(--accent-blue);
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--light-blue);
+        }
+
+        .upload-area:hover {
+            background: rgba(45, 110, 253, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        .upload-area p {
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .upload-area span {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 15px 0;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn.primary {
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+            color: white;
+        }
+
+        .modal-btn.secondary {
+            background: var(--gray);
+            color: var(--dark-gray);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Journey Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--accent-blue), transparent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+            width: 45%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, white, var(--light-blue));
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, white, var(--light-blue));
+            top: 20px;
+            transform: rotate(45deg);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content:after {
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -12px;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(45, 110, 253, 0.3);
+        }
+
+        /* Hopes Section */
+        .hopes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+            width: 100%;
+        }
+
+        .hope-card {
+            background: linear-gradient(145deg, #ffffff, #f0f7ff);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            border-top: 5px solid var(--accent-blue);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .hope-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+        }
+
+        .hope-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--gold));
+        }
+
+        .hope-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .hope-card:hover .hope-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Prayer Section */
+        .prayer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .prayer-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            background: linear-gradient(145deg, #ffffff, #f0f7ff);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            width: 100%;
+        }
+
+        .prayer-text:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 8rem;
+            color: rgba(45, 110, 253, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .prayer-signature {
+            font-style: italic;
+            text-align: right;
+            margin-top: 40px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .footer-heart {
+            color: #ff6b6b;
+            font-size: 2rem;
+            animation: heartbeat 1.2s infinite;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* NEW: Wishlist Page Styles */
+        .wishlist-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d1b3e 0%, #1a365d 50%, #2d6efd 100%);
+            color: white;
+            padding: 80px 0;
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .wishlist-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .wishlist-header {
+            text-align: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .wishlist-header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            width: 100%;
+        }
+
+        .wishlist-header p {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .back-to-main {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 101;
+        }
+
+        .back-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1) rotate(-15deg);
+            color: var(--gold);
+        }
+
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            width: 100%;
+        }
+
+        .wishlist-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .wishlist-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: var(--transition);
+            color: var(--gold);
+        }
+
+        .wishlist-item:hover .wishlist-icon {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .wishlist-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .wishlist-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .wishlist-priority {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(90deg, var(--accent-blue), #3b82f6);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(45, 110, 253, 0.4);
+        }
+
+        .wishlist-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.05) 50%);
+            border-radius: 0 20px 0 0;
+        }
+
+        /* Floating hearts for wishlist page */
+        .wishlist-heart {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: floatWishlist 10s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes floatWishlist {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-60px) rotate(180deg) scale(1.3);
+                opacity: 0.6;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .header-content h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .wishlist-header h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px;
+            }
+            
+            .timeline-content:after {
+                left: -12px !important;
+                right: auto !important;
+            }
+            
+            .nav-dots {
+                right: 15px;
+            }
+            
+            .wishlist-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .wishlist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .birthday-boy {
+                font-size: 1.8rem;
+            }
+            
+            .section-content {
+                padding: 35px;
+            }
+            
+            .description-content {
+                flex-direction: column;
+            }
+            
+            .image-frame {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .three-dot-menu {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .three-dot-btn {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .back-to-main {
+                top: 20px;
+                left: 20px;
+            }
+            
+            .wishlist-header h1 {
+                font-size: 2.4rem;
+            }
+            
+            .wishlist-header p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .album-item {
+                height: 280px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .album-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hopes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-dots {
+                display: none;
+            }
+            
+            .prayer-text {
+                padding: 30px 20px;
+            }
+            
+            .wishlist-header h1 {
+                font-size: 2rem;
+            }
+            
+            .wishlist-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-content">
+            <div id="anim-cake" class="cake-container">
+                <div class="cake">
+                    <div class="candle"><div class="flame"></div></div>
+                </div>
+            </div>
+            
+            <div id="anim-cig" class="cig-stick">
+                <div class="cig-filter"></div>
+                <div class="cig-burn"></div>
+            </div>
+
+            <div id="anim-pack" class="-pack">
+                <div class="-top"></div>
+                <div class="-label">HAPPY BIRTHDAY<br>DEDE<br></div>
+            </div>
+        </div>
+        <p id="loading-text">Dede Make a wish duluuu...</p>
+    </div>
+
+    <!-- IMAGE UPLOAD MODAL -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Gambar Dede</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Seret dan lepas gambar di sini</p>
+                <span>atau klik untuk memilih file</span>
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+            <img id="imagePreview" class="image-preview" alt="Preview gambar">
+            <div class="modal-buttons">
+                <button class="modal-btn secondary" id="cancelUpload">Batal</button>
+                <button class="modal-btn primary" id="saveImage">Simpan Gambar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN WEBSITE CONTENT -->
+    <div id="mainContent" style="display: none;">
+        <div class="three-dot-menu">
+            <div class="three-dot-btn" id="threeDotBtn">
+                <div class="dot-item"></div>
+                <div class="dot-item"></div>
+                <div class="dot-item"></div>
+            </div>
+            <div class="three-dot-content" id="threeDotContent">
+                <a href="#home"><i class="fas fa-home"></i> Home</a>
+                <a href="#about"><i class="fas fa-user-tie"></i> Tentang Dede</a>
+                <a href="#album"><i class="fas fa-images"></i> Album Kenangan</a>
+                <a href="#journey"><i class="fas fa-road"></i> Kisah Perjalanan</a>
+                <a href="#hopes"><i class="fas fa-star"></i> Harapan dan Impian</a>
+                <a href="#prayer"><i class="fas fa-pray"></i> Surat Doa</a>
+                <a href="#" id="wishlistLink"><i class="fas fa-gift"></i> Wishlist</a>
+                <a href="#future"><i class="fas fa-rocket"></i> Masa Depan</a>
+                <a href="#" id="uploadImageLink"><i class="fas fa-upload"></i> Unggah Gambar</a>
+            </div>
+        </div>
+
+        <div class="nav-dots" id="navDots">
+            <div class="dot active" data-target="home"></div>
+            <div class="dot" data-target="about"></div>
+            <div class="dot" data-target="album"></div>
+            <div class="dot" data-target="journey"></div>
+            <div class="dot" data-target="hopes"></div>
+            <div class="dot" data-target="prayer"></div>
+        </div>
+
+        <header class="fullscreen-header" id="home">
+            <div class="floating-heart" style="top: 10%; left: 5%; animation-delay: 0s;">❤️</div>
+            <div class="floating-heart" style="top: 15%; right: 10%; animation-delay: 1s;">❤️</div>
+            <div class="floating-heart" style="bottom: 20%; left: 8%; animation-delay: 2s;">❤️</div>
+            <div class="floating-heart" style="bottom: 15%; right: 15%; animation-delay: 3s;">❤️</div>
+            <div class="floating-heart" style="top: 30%; left: 15%; animation-delay: 4s;">❤️</div>
+            <div class="floating-heart" style="top: 40%; right: 20%; animation-delay: 5s;">❤️</div>
+            
+            <div class="header-content reveal-element">
+                <h1>Happy Birthday Dede!</h1>
+                <p class="subtitle">Hari ini adalah hari spesial untuk seseorang yang luar biasa. Semoga setiap langkahmu diiringi kebahagiaan, kesuksesan, dan kesehatan yang selalu menyertai.</p>
+                
+                <div class="header-cake">
+                    <div class="cake-container-main">
+                        <div class="cake-cigarette">
+                            <div class="-cigarette"></div>
+                            <div class="cigarette-smoke"></div>
+                            <div class="cigarette-smoke"></div>
+                            <div class="cigarette-smoke"></div>
+                        </div>
+                        
+                        <div class="cake-single"></div>
+                        <div class="cake-text">
+                            <span class="-text"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="birthday-boy ripple-target">Untuk Pasyal Yang Terhebat</div>
+            </div>
+            
+            <div class="scroll-down ripple-target" id="scrollDown">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </header>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title reveal-element">Tentang Dede</h2>
+                <div class="section-content reveal-element">
+                    <div class="description-content">
+                        <div class="description-text">
+                            <p>Seorang wanita dengan karakter yang kuat, hati yang besar, dan semangat yang tak pernah padam. Dia adalah sosok yang selalu hadir dengan energi positif, mendukung dan menginspirasi orang-orang di sekitarnya.</p>
+                            <p>Dengan kecerdasan dan keteguhan prinsip, dia menjadi panutan dalam banyak hal. Kebaikan hatinya terlihat dari caranya memperlakukan orang lain dengan respect dan perhatian yang tulus.</p>
+                            <p>Di hari ulang tahunnya ini, semoga semua impian dan cita-citanya tercapai. Semoga kesehatan, kebahagiaan, dan kesuksesan selalu menjadi bagian dari setiap hari dalam hidupnya.</p>
+                        </div>
+                        <div class="description-image">
+                            <div class="image-frame">
+                                <div class="image-placeholder">
+                                    🎂<br>Birthday Girl
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="album">
+            <div class="container">
+                <h2 class="section-title reveal-element">Album Kenangan</h2>
+                <div class="album-grid" id="albumGrid">
+                    <!-- Album items will be dynamically generated here -->
+                </div>
+                <div class="section-content reveal-element" style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 1.2rem; color: var(--dark-gray); margin-bottom: 20px;">
+                        Klik tombol "Unggah Gambar" di menu untuk menambahkan foto kenangan spesialmu
+                    </p>
+                    <button id="uploadImageBtn" class="modal-btn primary" style="padding: 15px 30px; font-size: 1.1rem;">
+                        <i class="fas fa-plus-circle"></i> Tambah Gambar ke Album
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey">
+            <div class="container">
+                <h2 class="section-title reveal-element">Kisah Perjalanan</h2>
+                <div class="timeline">
+                    <div class="timeline-item reveal-element">
+                        <div class="timeline-content">
+                            <span class="timeline-year">2023</span>
+                            <h3>Awal Perkenalan</h3>
+                            <p>Momen pertama kali bertemu dan mengenal satu sama lain. Saat itu mungkin tidak menyangka bahwa perkenalan kecil bakal membawa pada perjalanan yang begitu berarti dalam hidup.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-element">
+                        <div class="timeline-content">
+                            <span class="timeline-year">2024</span>
+                            <h3>Kebersamaan yang Terbangun</h3>
+                            <p>Mulai menjalin hubungan yang lebih dekat, saling memahami karakter, dan mendukung satu sama lain dalam setiap langkah kehidupan yang dijalani.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-element">
+                        <div class="timeline-content">
+                            <span class="timeline-year">2025</span>
+                            <h3>Ujian dan Pertumbuhan</h3>
+                            <p>Menghadapi berbagai tantangan bersama-sama, yang justru membuat hubungan semakin kuat dan matang. Setiap ujian menjadi pelajaran berharga yang memperkuat ikatan.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-element">
+                        <div class="timeline-content">
+                            <span class="timeline-year">2026 - masa depan</span>
+                            <h3>Pencapaian Bersama</h3>
+                            <p>Meraih berbagai pencapaian penting dalam karir dan kehidupan pribadi. Kebanggaan tumbuh melihat perkembangan dan kemajuan yang dicapai bersama.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-element">
+                        <div class="timeline-content">
+                            <span class="timeline-year">secret message</span>
+                            <h3>sayangi ciloo terus yeaa😁💕</h3>
+                            <p>ciloo pengen di sayang dede.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hopes">
+            <div class="container">
+                <h2 class="section-title reveal-element">Harapan dan Impian</h2>
+                <div class="hopes-grid">
+                    <div class="hope-card reveal-element ripple-target">
+                        <div class="hope-icon">🚀</div>
+                        <h3>Kesuksesan Karir</h3>
+                        <p>Semoga lolos UNDIP dan Semoga setiap langkah dalam perjalanan kariermu membawa pada pencapaian yang gemilang dan pengakuan atas dedikasi serta kerja keras yang telah kamu berikan.</p>
+                    </div>
+                    <div class="hope-card reveal-element ripple-target" style="transition-delay: 0.1s">
+                        <div class="hope-icon">💖</div>
+                        <h3>Kesehatan dan Kebahagiaan</h3>
+                        <p>Semoga kesehatan selalu menyertaimu, dan kebahagiaan mengisi setiap sudut hidupmu. Jadilah pribadi yang selalu bersyukur dan penuh semangat dalam menjalani hidup.</p>
+                    </div>
+                    <div class="hope-card reveal-element ripple-target" style="transition-delay: 0.2s">
+                        <div class="hope-icon">🌎</div>
+                        <h3>Petualangan Menyenangkan</h3>
+                        <p>Semoga kamu memiliki kesempatan untuk menjelajahi dunia, mengalami budaya baru, dan menciptakan kenangan indah di setiap perjalanan yang kamu lakukan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prayer">
+            <div class="container">
+                <h2 class="section-title reveal-element">Surat Doa</h2>
+                <div class="prayer-content reveal-element">
+                    <div class="prayer-text">
+                        <p>Di hari yang sukacita ini, dengan hati yang tulus cilo berdoa buat dede...</p>
+                        <p>Semoga Tuhan Yesus selalu melimpahkan iman, karunia, dan perlindungan-Nya dalam setiap langkah hidup dede. Semoga dede diberi kesehatan, ketenangan hati, dan kekuatan dalam menghadapi segala tantangan yang datang.</p>
+                        <p>Semoga setiap impian yang dede rajut dengan penuh harap dapat terwujud satu per satu. Semoga kesuksesan menjadi teman setiamu, dan kebahagiaan menjadi bagian dari setiap hari dalam hidupmu.</p>
+                        <p>Teruslah menjadi pribadi yang rendah hati, penuh kasih, dan inspiratif bagi banyak orang. Jadilah cahaya yang menerangi jalan orang lain, seperti dede telah menjadi cahaya dalam hidup banyak orang di sekitar.</p>
+                        <p>Selamat ulang tahun dede❤️, semoga tahun ini menjadi tahun terbaik dalam perjalanan hidup dede, penuh dengan pencapaian, kebahagiaan, dan kedamaian.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container reveal-element">
+                <p>Dibuat oleh | Nathanael Marchello Poetraiwantoro untuk merayakan hari ulang tahun dede
+                <p>© 2025 Happy Birthday! | BY @natthmrc</p>
+                <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">Semoga semua harapan dan impian dede menjadi kenyataan</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- WISHLIST PAGE (HIDDEN BY DEFAULT) -->
+    <div class="wishlist-page" id="wishlistPage">
+        <div class="back-to-main">
+            <div class="back-btn ripple-target" id="backToMain">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+        
+        <!-- Floating hearts for wishlist page -->
+        <div class="wishlist-heart" style="top: 10%; left: 5%; animation-delay: 0s;">❤️</div>
+        <div class="wishlist-heart" style="top: 15%; right: 10%; animation-delay: 2s;">❤️</div>
+        <div class="wishlist-heart" style="bottom: 20%; left: 8%; animation-delay: 4s;">❤️</div>
+        <div class="wishlist-heart" style="bottom: 15%; right: 15%; animation-delay: 6s;">❤️</div>
+        <div class="wishlist-heart" style="top: 30%; left: 15%; animation-delay: 8s;">❤️</div>
+        <div class="wishlist-heart" style="top: 40%; right: 20%; animation-delay: 10s;">❤️</div>
+        
+        <div class="wishlist-container">
+            <div class="wishlist-header reveal-element">
+                <h1>Birthday Wishlist</h1>
+                <p>Daftar impian dan keinginan untuk tahun baru dalam hidupmu. Semoga setiap harapan terwujud dengan indah.</p>
+            </div>
+            
+            <div class="wishlist-grid">
+                <div class="wishlist-item reveal-element ripple-target">
+                    <div class="wishlist-icon">✈️</div>
+                    <h3>Liburan ke Luar Negeri</h3>
+                    <p>Mengunjungi USA, Norway, dan Europe. </p>
+                    <span class="wishlist-priority">Impian Besar</span>
+                </div>
+                
+                <div class="wishlist-item reveal-element ripple-target">
+                    <div class="wishlist-icon">📚</div>
+                    <h3>Koleksi Buku Langka</h3>
+                    <p>Buku-buku klasik edisi khusus, biografi inspiratif, dan literatur pengembangan diri untuk memperkaya wawasan dan pengetahuan.</p>
+                    <span class="wishlist-priority">Pengembangan Diri</span>
+                </div>
+                
+                
+                <div class="wishlist-item reveal-element ripple-target" style="transition-delay: 0.2s">
+                    <div class="wishlist-icon">🥘</div>
+                    <h3>Kelas Masak Profesional</h3>
+                    <p>Belajar memasak masakan internasional dari chef profesional. Mengembangkan hobi kuliner dan skill memasak yang lebih baik.</p>
+                    <span class="wishlist-priority">Hobi Baru</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // LOADING ANIMATION LOGIC
+        window.onload = function() {
+            const cake = document.getElementById('anim-cake');
+            const cig = document.getElementById('anim-cig');
+            const pack = document.getElementById('anim-pack');
+            const loaderText = document.getElementById('loading-text');
+            const loader = document.getElementById('loader');
+            const mainContent = document.getElementById('mainContent');
+
+            // 1. Awal: Kue sudah terlihat
+            // 2. Setelah 2.5 detik: Ubah Kue jadi Batang Rokok
+            setTimeout(() => {
+                cake.style.display = 'none';
+                cig.style.display = 'block';
+                loaderText.innerText = "Bakar semangat dulu...";
+                
+                cig.animate([
+                    { transform: 'rotate(0deg) scale(0.8)' },
+                    { transform: 'rotate(360deg) scale(1)' }
+                ], {
+                    duration: 800,
+                    easing: 'ease-out'
+                });
+
+            }, 2500);
+
+            // 3. Setelah 2 detik kemudian (total 4.5s): Ubah Batang jadi Bungkus 
+            setTimeout(() => {
+                cig.style.display = 'none';
+                pack.style.display = 'block';
+                loaderText.innerText = "Siap meluncur!";
+                
+                pack.animate([
+                    { transform: 'scale(0.5)', opacity: 0 },
+                    { transform: 'scale(1.05)', opacity: 1, offset: 0.7 },
+                    { transform: 'scale(1)', opacity: 1 }
+                ], {
+                    duration: 600,
+                    easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                });
+
+            }, 4500);
+
+            // 4. Akhir (total 6.5s): Hilangkan Layar Loading dan tampilkan konten utama
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    mainContent.style.display = 'block';
+                    
+                    // Setelah loading selesai, jalankan kode utama website
+                    initializeWebsite();
+                }, 800);
+
+            }, 6500);
+        };
+
+        // VARIABLES FOR IMAGE MANAGEMENT
+        let uploadedImages = [];
+        let currentAlbumItem = null;
+
+        // FUNCTION TO INITIALIZE WEBSITE AFTER LOADING
+        function initializeWebsite() {
+            // Initialize default album images
+            initializeDefaultAlbum();
+            
+            // --- PROFESSIONAL ANIMATION LOGIC (NEW) ---
+
+            // 1. Reveal Animation on Scroll using Intersection Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            // Select elements to reveal
+            const revealElements = document.querySelectorAll('.reveal-element, .timeline-item');
+            revealElements.forEach(el => observer.observe(el));
+
+            // 2. Ripple Click Effect Logic
+            function createRipple(event) {
+                const button = event.currentTarget;
+                const circle = document.createElement("span");
+                const diameter = Math.max(button.clientWidth, button.clientHeight);
+                const radius = diameter / 2;
+
+                // Get click position relative to the element
+                const rect = button.getBoundingClientRect();
+                
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - rect.left - radius}px`;
+                circle.style.top = `${event.clientY - rect.top - radius}px`;
+                circle.classList.add("ripple-effect");
+
+                // Remove existing ripple if any
+                const ripple = button.getElementsByClassName("ripple-effect")[0];
+                if (ripple) {
+                    ripple.remove();
+                }
+
+                button.appendChild(circle);
+            }
+
+            const buttons = document.querySelectorAll('.three-dot-btn, .back-btn, .ripple-target, .wishlist-item, .album-item, .hope-card, .birthday-boy, #uploadImageBtn, .modal-btn');
+            for (const button of buttons) {
+                button.addEventListener("click", createRipple);
+            }
+
+            // --- END PROFESSIONAL ANIMATION LOGIC ---
+
+            // Three-dot menu functionality
+            const threeDotBtn = document.getElementById('threeDotBtn');
+            const threeDotContent = document.getElementById('threeDotContent');
+            const wishlistLink = document.getElementById('wishlistLink');
+            const uploadImageLink = document.getElementById('uploadImageLink');
+            const backToMainBtn = document.getElementById('backToMain');
+            const mainContent = document.getElementById('mainContent');
+            const wishlistPage = document.getElementById('wishlistPage');
+            const imageModal = document.getElementById('imageModal');
+            const closeModal = document.getElementById('closeModal');
+            const cancelUpload = document.getElementById('cancelUpload');
+            const uploadArea = document.getElementById('uploadArea');
+            const imageInput = document.getElementById('imageInput');
+            const imagePreview = document.getElementById('imagePreview');
+            const saveImage = document.getElementById('saveImage');
+            const uploadImageBtn = document.getElementById('uploadImageBtn');
+            
+            threeDotBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                threeDotContent.classList.toggle('show');
+            });
+            
+            // Close three-dot menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!threeDotBtn.contains(event.target) && !threeDotContent.contains(event.target)) {
+                    threeDotContent.classList.remove('show');
+                }
+            });
+            
+            // Scroll down button
+            const scrollDownBtn = document.getElementById('scrollDown');
+            scrollDownBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Navigation dots functionality
+            const dots = document.querySelectorAll('.dot');
+            const sections = document.querySelectorAll('section');
+            const header = document.getElementById('home');
+            
+            // Function to update active dot
+            function updateActiveDot() {
+                let currentSection = '';
+                const scrollPos = window.scrollY + 150;
+                
+                // Check if we're in the header
+                if (scrollPos < header.offsetHeight) {
+                    currentSection = 'home';
+                } else {
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        
+                        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                            currentSection = section.getAttribute('id');
+                        }
+                    });
+                }
+                
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-target') === currentSection) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Scroll event listener
+            window.addEventListener('scroll', updateActiveDot);
+            
+            // Click event for dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    let targetElement;
+                    
+                    if (targetId === 'home') {
+                        targetElement = header;
+                    } else {
+                        targetElement = document.getElementById(targetId);
+                    }
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 30,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active dot
+                        dots.forEach(d => d.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Three-dot menu links (except wishlist and upload)
+            const threeDotLinks = document.querySelectorAll('.three-dot-content a');
+            threeDotLinks.forEach(link => {
+                if (link.id !== 'wishlistLink' && link.id !== 'uploadImageLink') {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        let targetElement;
+                        
+                        if (targetId === 'home') {
+                            targetElement = header;
+                        } else if (targetId === 'future') {
+                            // This section doesn't exist, so scroll to prayer section
+                            targetElement = document.getElementById('prayer');
+                        } else {
+                            targetElement = document.getElementById(targetId);
+                        }
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 30,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update dots
+                            dots.forEach(dot => {
+                                dot.classList.remove('active');
+                                if (dot.getAttribute('data-target') === targetId || 
+                                    (targetId === 'future' && dot.getAttribute('data-target') === 'prayer')) {
+                                    dot.classList.add('active');
+                                }
+                            });
+                            
+                            // Close menu
+                            threeDotContent.classList.remove('show');
+                        }
+                    });
+                }
+            });
+            
+            // Image upload functionality
+            uploadImageLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                openImageUploadModal();
+                threeDotContent.classList.remove('show');
+            });
+            
+            uploadImageBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openImageUploadModal();
+            });
+            
+            function openImageUploadModal() {
+                imageModal.style.display = 'flex';
+                imagePreview.style.display = 'none';
+                imageInput.value = '';
+            }
+            
+            // Close modal functions
+            closeModal.addEventListener('click', closeImageModal);
+            cancelUpload.addEventListener('click', closeImageModal);
+            
+            function closeImageModal() {
+                imageModal.style.display = 'none';
+                imagePreview.style.display = 'none';
+                imageInput.value = '';
+            }
+            
+            // Click on upload area to trigger file input
+            uploadArea.addEventListener('click', function() {
+                imageInput.click();
+            });
+            
+            // Handle file selection
+            imageInput.addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(event) {
+                        imagePreview.src = event.target.result;
+                        imagePreview.style.display = 'block';
+                    }
+                    
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+            
+            // Drag and drop functionality
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.style.background = 'rgba(45, 110, 253, 0.15)';
+                uploadArea.style.borderColor = 'var(--primary-blue)';
+            });
+            
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadArea.style.background = 'var(--light-blue)';
+                uploadArea.style.borderColor = 'var(--accent-blue)';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.style.background = 'var(--light-blue)';
+                uploadArea.style.borderColor = 'var(--accent-blue)';
+                
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    const file = e.dataTransfer.files[0];
+                    
+                    // Check if it's an image
+                    if (file.type.match('image.*')) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(event) {
+                            imagePreview.src = event.target.result;
+                            imagePreview.style.display = 'block';
+                        }
+                        
+                        reader.readAsDataURL(file);
+                        
+                        // Set the file to the input
+                        const dataTransfer = new DataTransfer();
+                        dataTransfer.items.add(file);
+                        imageInput.files = dataTransfer.files;
+                    } else {
+                        alert('Silakan pilih file gambar (JPG, PNG, GIF)');
+                    }
+                }
+            });
+            
+            // Save image to album
+            saveImage.addEventListener('click', function() {
+                if (!imageInput.files[0]) {
+                    alert('Silakan pilih gambar terlebih dahulu');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageData = event.target.result;
+                    const imageName = imageInput.files[0].name;
+                    const imageId = 'image_' + Date.now();
+                    
+                    // Add to uploaded images array
+                    uploadedImages.push({
+                        id: imageId,
+                        src: imageData,
+                        name: imageName,
+                        title: 'Kenangan Baru',
+                        description: 'Momen spesial yang baru ditambahkan',
+                        date: new Date().toLocaleDateString('id-ID')
+                    });
+                    
+                    // Add to album
+                    addImageToAlbum({
+                        id: imageId,
+                        src: imageData,
+                        title: 'Kenangan Baru',
+                        description: 'Momen spesial yang baru ditambahkan'
+                    });
+                    
+                    // Close modal
+                    closeImageModal();
+                    
+                    // Show success message
+                    showNotification('Gambar berhasil ditambahkan ke album!', 'success');
+                };
+                
+                reader.readAsDataURL(imageInput.files[0]);
+            });
+            
+            // Wishlist page navigation
+            wishlistLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Hide main content, show wishlist page
+                mainContent.style.display = 'none';
+                wishlistPage.style.display = 'block';
+                // Close three-dot menu
+                threeDotContent.classList.remove('show');
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Trigger reveal animations for wishlist items
+                setTimeout(() => {
+                    const wishlistItems = document.querySelectorAll('.wishlist-item');
+                    wishlistItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('active');
+                        }, index * 100);
+                    });
+                    
+                    // Also reveal wishlist header
+                    document.querySelector('.wishlist-header').classList.add('active');
+                }, 100);
+            });
+            
+            // Back to main page
+            backToMainBtn.addEventListener('click', function() {
+                // Show main content, hide wishlist page
+                mainContent.style.display = 'block';
+                wishlistPage.style.display = 'none';
+                // Scroll to top of main page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Create floating hearts for header
+            function createFloatingHearts() {
+                const header = document.querySelector('.fullscreen-header');
+                // Add more floating hearts
+                for (let i = 0; i < 12; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * 90 + 5}%`;
+                    heart.style.top = `${Math.random() * 90 + 5}%`;
+                    heart.style.animationDelay = `${Math.random() * 6}s`;
+                    heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+                    heart.style.opacity = `${Math.random() * 0.4 + 0.2}`;
+                    header.appendChild(heart);
+                }
+            }
+            
+            createFloatingHearts();
+            
+            // Create floating hearts for wishlist page
+            function createWishlistHearts() {
+                const wishlistPage = document.getElementById('wishlistPage');
+                for (let i = 0; i < 8; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'wishlist-heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * 90 + 5}%`;
+                    heart.style.top = `${Math.random() * 90 + 5}%`;
+                    heart.style.animationDelay = `${Math.random() * 10}s`;
+                    heart.style.fontSize = `${Math.random() * 15 + 10}px`;
+                    heart.style.opacity = `${Math.random() * 0.3 + 0.2}`;
+                    wishlistPage.appendChild(heart);
+                }
+            }
+            
+            createWishlistHearts();
+            
+            // Initial Check for visibility (in case page loaded scrolled down)
+            setTimeout(() => {
+                revealElements.forEach(el => observer.observe(el));
+            }, 500);
+        }
+
+        // FUNCTION TO INITIALIZE DEFAULT ALBUM
+        function initializeDefaultAlbum() {
+            const albumGrid = document.getElementById('albumGrid');
+            
+            // Default album images data
+            const defaultAlbum = [
+                {
+                    id: 'album1',
+                    src: 'https://scontent.cdninstagram.com/v/t51.82787-15/583427670_18058444790643378_7700047523520095316_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzc2NjAzODI5NTYxMzY3NzM0Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=bb_T9kZdAcEQ7kNvwGkFLr3&_nc_oc=Adl1bLn_bojGSPk2wLhNs0_ikwBGr2-hZbjgQvzfQ_DQxRA3EIlWA3YZJZaSg-bNDCA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=vIzxOobjV9vrLh6UxQy1ag&oh=00_Afo5zHBCWZIw7t3AbR-b8eSoRsuZUhcrhnpCtsMyKhxjEw&oe=695EEE09',
+                    title: 'Dede Syantik',
+                    description: ''
+                },
+                {
+                    id: 'album2',
+                    src: 'https://scontent.cdninstagram.com/v/t51.82787-15/601288860_18062124437643378_133287321563750041_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzc5MTU0ODE5MTI1NTczODUzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=cpioqEMsTXMQ7kNvwEkByXN&_nc_oc=AdlYH5k-U8HsQk1WnPsgbSmiL-qK4bQ6i1pFARNueXF3PgIbH5aizDInWrQ7YQ0EqD0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=vIzxOobjV9vrLh6UxQy1ag&oh=00_Afr2qp875__4OOCwwCm0Ze1SL4iWJfmxqfrTY_whG3Zhww&oe=695F095C',
+                    title: 'Dede Kece',
+                    description: ''
+                },
+                {
+                    id: 'album3',
+                    src: 'https://scontent.cdninstagram.com/v/t51.82787-15/606516597_17930113197173689_3748205208285075407_n.heic?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=103&ig_cache_key=Mzc5Njg3NDIxNDA3OTk3NzIxNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=yA6Eu9MSljcQ7kNvwEy9Njv&_nc_oc=AdnxRNth1IjhLLTs5CCR-2sYmLTrydh9ktzr_2VcGmwmNP3jiAZvy6O535jE2XPZD0Y&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=yNW4b4FQ19ZRaTItp3KmRQ&oh=00_AfrlOp03NFi35Ff09K-pSBgKWcFjnlw_wbu3E_AQwDl_7g&oe=695EE5FE',
+                    title: 'dede n ciwoo',
+                    description: ''
+                },
+                {
+                    id: 'album4',
+                    src: 'https://scontent.cdninstagram.com/v/t51.82787-15/583761420_18058976414643378_4806815235241363190_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzc2OTk4NDIwNDMzMjUwNTMzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0Mzd4ODA4LnNkci5DMyJ9&_nc_ohc=Qr4ROZmxunQQ7kNvwHecwl-&_nc_oc=AdmeEqZNWvq3iGqe8-ugXiq6MIBNlblVhD4AosG2nu-m54QiaEB-v0dxffvTReB505Y&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=vIzxOobjV9vrLh6UxQy1ag&oh=00_AfpDluBsjynqLA7AShqLIPFDBC0JTL1LECZB_rV-5HWJ0Q&oe=695F0C1F',
+                    title: 'dede Syentil',
+                    description: ''
+                }
+            ];
+            
+            // Clear existing content
+            albumGrid.innerHTML = '';
+            
+            // Add default images to album
+            defaultAlbum.forEach((item, index) => {
+                addImageToAlbum(item, index * 0.1);
+            });
+            
+            // Add any uploaded images
+            uploadedImages.forEach((item, index) => {
+                addImageToAlbum(item, (defaultAlbum.length + index) * 0.1);
+            });
+        }
+
+        // FUNCTION TO ADD IMAGE TO ALBUM
+        function addImageToAlbum(imageData, delay = 0) {
+            const albumGrid = document.getElementById('albumGrid');
+            
+            const albumItem = document.createElement('div');
+            albumItem.className = 'album-item reveal-element ripple-target';
+            albumItem.style.transitionDelay = `${delay}s`;
+            albumItem.dataset.id = imageData.id;
+            
+            albumItem.innerHTML = `
+                <img src="${imageData.src}" alt="${imageData.title}" class="album-image">
+                <div class="album-overlay">
+                    <h3>${imageData.title}</h3>
+                    <p>${imageData.description}</p>
+                </div>
+            `;
+            
+            albumGrid.appendChild(albumItem);
+            
+            // Add click event for ripple effect
+            albumItem.addEventListener('click', function(e) {
+                const circle = document.createElement("span");
+                const diameter = Math.max(this.clientWidth, this.clientHeight);
+                const radius = diameter / 2;
+                const rect = this.getBoundingClientRect();
+                
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${e.clientX - rect.left - radius}px`;
+                circle.style.top = `${e.clientY - rect.top - radius}px`;
+                circle.classList.add("ripple-effect");
+
+                const ripple = this.getElementsByClassName("ripple-effect")[0];
+                if (ripple) {
+                    ripple.remove();
+                }
+
+                this.appendChild(circle);
+            });
+            
+            // Observe for reveal animation
+            setTimeout(() => {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                observer.observe(albumItem);
+            }, 100);
+        }
+
+        // FUNCTION TO SHOW NOTIFICATION
+        function showNotification(message, type = 'success') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : '#ef4444'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                z-index: 1000;
+                transform: translateX(100%);
+                opacity: 0;
+                transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                font-weight: 500;
+                max-width: 300px;
+                word-wrap: break-word;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+                notification.style.opacity = '1';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                notification.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
